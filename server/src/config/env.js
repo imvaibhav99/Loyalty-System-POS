@@ -12,6 +12,10 @@ export const env = {
   JWT_REFRESH_SECRET: required('JWT_REFRESH_SECRET'),
   CLIENT_ORIGIN:      process.env.CLIENT_ORIGIN || 'http://localhost:5173',
 
+  // Public URL of this service, pinged by the keep-awake cron job.
+  // SELF_URL can override this for another deployment environment.
+  SELF_URL:           process.env.SELF_URL || 'https://ballu-thekedar.onrender.com',
+
   // mail is optional — when SMTP_HOST is unset, emails are logged instead of sent
   SMTP_HOST:      process.env.SMTP_HOST || '',
   SMTP_PORT:      Number(process.env.SMTP_PORT) || 587,

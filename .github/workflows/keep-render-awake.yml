@@ -1,0 +1,13 @@
+name: Keep Render API awake
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping API health endpoint
+        run: curl --fail --silent --show-error --retry 2 --retry-all-errors https://ballu-thekedar.onrender.com/health
